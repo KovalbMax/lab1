@@ -3,8 +3,10 @@
 
 int main()
 {
+    int n;
     int a, b, c, d;
     double x1 ,x2;
+    do {
     printf("Напишите a,b,c через пробел - ");
     scanf("%d%d%d",&a,&b,&c);
     d=b*b - 4*a*c;
@@ -21,5 +23,6 @@ int main()
     x2=(-b-sqrt(d))/(2*a);
     
     printf("x1=%.2lf\nx2=%.lf",x1,x2);}
+    }
     return 0;
 }
