@@ -1,4 +1,4 @@
-include<stdio.h>
+#include<stdio.h>
 #include<math.h>
 
 int main()
@@ -7,11 +7,11 @@ int main()
     int a, b, c, d, o;
     double x1 ,x2;
     
-    printf("Напишите a,b,c через пробел - ");
+    printf("Write a,b,c with space - ");
     scanf("%d%d%d",&a,&b,&c);
     d=b*b - 4*a*c;
     if (d<0){
-    printf("Дискриминант меньше 0");
+    printf("D < 0");
     }
     if (d==0){
     x1=-b/(2*a);
@@ -25,14 +25,14 @@ int main()
     printf("x1=%.2lf\nx2=%.lf",x1,x2);}
     
     do {
-    printf("Если хотите повторить программу напишите 1, если нет - 2");
+    printf("if you want to use the programm again print 1 , else - 2");
     scanf("%d",&o);
     if (o==1){
-    printf("Напишите a,b,c через пробел - ");
+    printf("Write a,b,c with space - ");
     scanf("%d%d%d",&a,&b,&c);
     d=b*b - 4*a*c;
     if (d<0){
-    printf("Дискриминант меньше 0");
+    printf("D < 0");
     }
     if (d==0){
     x1=-b/(2*a);
@@ -47,6 +47,7 @@ int main()
     else {
     break;}
     } while(n<5);
+    printf("Are you all right?");
     
     return 0;
 }
