@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
 	printf("Write matrix with space");
     printf("array[%d][%d] = ", i, j);
     scanf("%lf", &array[i][j]);
-    
+
     }
     }
 glavn= array[0][0]+array[1][1]+array[2][2];
@@ -28,19 +28,18 @@ for (int m=0; m<2; m++){
 	for (int n=0; n<2; n++){
 
 {
-for (int n=0; n<2; n++);{
 printf("Write matrix with space");
 printf("arr[%d][%d] = ", m, n);
 scanf("%lf", &arr[m][n]);
 		}
 	}
 }
-}
+
 p[0][0]=arr[0][0]*arr[0][0]+arr[0][1]*arr[1][0];
 p[1][0]=arr[1][0]*arr[0][0]+arr[1][1]*arr[1][0];
 p[0][1]=arr[0][0]*arr[0][1]+arr[0][1]*arr[1][1];
 p[1][1]=arr[1][0]*arr[0][1]+arr[1][1]*arr[1][1];
-printf("\nProizvedenie: %2lf\n", p);
+printf("\nProizvedenie: \%d %d\n%d %d", p[0][0], p[1][0], p[0][1], p[1][1]);
 
 return 0;
 }
