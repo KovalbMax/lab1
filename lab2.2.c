@@ -3,19 +3,6 @@
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
-int n;
-double sum(double array[n][n]){
-
-
-	for (int i=0; i<n; i++){
-		for (int j=0; j<n; j++){
-			return array[i][j]+array[i][j];
-			
-		}
-		
-	}
-}
-
 
 
 
@@ -30,7 +17,7 @@ int main(int argc, char *argv[])
 		printf("Write matrix with space");
 		printf("arr[%d][%d] = ", 	m, c);
 		scanf("%lf", &arr[m][c]);
-		v=sum(arr[m][c]);
+	
 		printf(v);
 		}
 	}

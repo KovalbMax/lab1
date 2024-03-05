@@ -24,7 +24,9 @@ printf("\nSum pobochnoy diag: %2lf\n", pob);
 printf("2 part");
 int arr[2][2]={0};
 int p[2][2];
-for (int m=0; m<2; m++);
+for (int m=0; m<2; m++){
+	for (int n=0; n<2; n++){
+
 {
 for (int n=0; n<2; n++);{
 printf("Write matrix with space");
@@ -32,6 +34,8 @@ printf("arr[%d][%d] = ", m, n);
 scanf("%lf", &arr[m][n]);
 		}
 	}
+}
+}
 p[0][0]=arr[0][0]*arr[0][0]+arr[0][1]*arr[1][0];
 p[1][0]=arr[1][0]*arr[0][0]+arr[1][1]*arr[1][0];
 p[0][1]=arr[0][0]*arr[0][1]+arr[0][1]*arr[1][1];
