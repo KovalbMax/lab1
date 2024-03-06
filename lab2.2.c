@@ -8,7 +8,6 @@
 
 int main(int argc, char *argv[]) 
 {
-	int v;
 	int arr[2][2];
 	for (int m=0; m<2; m++)
    {
@@ -17,8 +16,6 @@ int main(int argc, char *argv[])
 		printf("Write matrix with space");
 		printf("arr[%d][%d] = ", 	m, c);
 		scanf("%lf", &arr[m][c]);
-	
-		printf(v);
 		}
 	}
 

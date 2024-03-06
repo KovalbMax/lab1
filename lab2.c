@@ -1,8 +1,15 @@
 #include<stdio.h>
-
-int main(int argc, char *argv[])
+/*
+Объявить массив данных типа double размером 3 на 3. 
+Ввести с консоли его значения, вывести на консоль сумму его элементов,
+расположенных на главной диагонали и сумму элементов, расположенных на 
+побочной диагонали.
+Объявить массив данных типа int размером 2 на 2. 
+Ввести с консоли его значения, вывести на консоль квадрат данной матрицы.
+*/
+int main()
 {
-    double array[3][3]={0};
+    double array[3][3];
     double glavn, pob; 
     for (int i=0;i<3;i++)
 	{
@@ -14,32 +21,42 @@ int main(int argc, char *argv[])
 
     }
     }
-glavn= array[0][0]+array[1][1]+array[2][2];
-pob= array[0][2]+array[1][1]+array[2][0];
+    for (int i=0; i<3; i++){
+	glavn += array[i][i];
+	pob += array[i][3-i-1];
+}
 printf("\nSum glavnoy diag: %2lf\n", glavn);
 printf("\nSum pobochnoy diag: %2lf\n", pob);
 
 
-
-printf("2 part");
-int arr[2][2]={0};
+double arr1[2][2];
+for (int m=0; m<2; m++){
+	for (int k=0; k<2; k++){
+		printf("Write matrix with space");
+		printf("arr1[%d][%d] = ", m, k);
+		scanf("%lf", &arr1[m][k]);
+	}
+	
+	}
 int p[2][2];
 for (int m=0; m<2; m++){
-	for (int n=0; n<2; n++){
-
-{
-printf("Write matrix with space");
-printf("arr[%d][%d] = ", m, n);
-scanf("%lf", &arr[m][n]);
+	for (int k=0; k<2; k++){
+		p[m][k]=0;
+		for (int b=0; b<2; b++) {
+			p[m][k] += arr1[m][b] * arr1[b][k];
+			
 		}
+	
 	}
 }
 
-p[0][0]=arr[0][0]*arr[0][0]+arr[0][1]*arr[1][0];
-p[1][0]=arr[1][0]*arr[0][0]+arr[1][1]*arr[1][0];
-p[0][1]=arr[0][0]*arr[0][1]+arr[0][1]*arr[1][1];
-p[1][1]=arr[1][0]*arr[0][1]+arr[1][1]*arr[1][1];
-printf("\nProizvedenie: \%d %d\n%d %d", p[0][0], p[1][0], p[0][1], p[1][1]);
 
+printf("Proizvedenie: \n");
+for(int m=0; m<2; m++) {
+    for(int k=0; k<2; k++) {
+      printf("%d ", p[m][k]);
+    }
+    printf("\n");
+}
 return 0;
 }
