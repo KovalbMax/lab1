@@ -47,8 +47,8 @@ int main(int argc, char *argv[]) {
 	scanf("%c", &znac);
 	if (znac=='+'){
 		for (int i=0; i<n ; i++){
-			for (int j=0; j<n ; j++){
-				p[i][j] += sum(matrix1[n][n],matrix2[n][n]);
+			for (int k=0; k<n ; k++){
+				p[i][k] += sum(matrix1[n][n],matrix2[n][n]);
 			}
 		}
 		
