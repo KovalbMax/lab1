@@ -26,8 +26,8 @@ double proiz(double a[n][n], double b[n][n]){
 }
 double minus(double a[n][n], double b[n][n]){
 	for (int i=0; i<n; i++){
-		for (int j=0; j<n;j++){
-			return a[i][j] - b[i][j];
+		for (int k=0; k<n;k++){
+			return a[i][k] - b[i][k];
 			
 		}
 	}
