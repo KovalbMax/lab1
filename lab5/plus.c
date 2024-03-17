@@ -12,6 +12,7 @@ double sum(double a[n][n], double b[n][n]){
 		}
 	}
 }
+
 double proiz(double a[n][n], double b[n][n]){
 	for (int i=0; i<2; i++){
 		for (int j=0; j<2; j++){
