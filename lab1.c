@@ -3,6 +3,7 @@
 
 int main()
 {
+	int doo, does;
     int n=0;
     int a, b, c, d, o;
     double x1 ,x2;
