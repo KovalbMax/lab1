@@ -12,7 +12,7 @@ n на n с элементами типа double (значения n и элем
 int main(int argc, char *argv[]) {
 	int n;
 	int znac;
-	printf("Vvedite razmernost - ");
+	printf("Vvedite razmernost - \n");
 	scanf("%d", &n);
 	double **matrix1; double **matrix2;
 	matrix1=(double**)malloc(n*sizeof(double*));
@@ -21,20 +21,25 @@ int main(int argc, char *argv[]) {
 		matrix1[i]=(double**)malloc(n*sizeof(double));
 		matrix2[i]=(double**)malloc(n*sizeof(double));
 	}
-	printf("Vvedite znacheniya 1 matrici - ");
+	printf("Vvedite znacheniya 1 matrici \n- ");
 	for (int i=0; i<n; i++){
 		for (int j=0; j<n; j++){
 			scanf("%lf ", &matrix1[i][j]);	
 		}
 	}
-	printf("Vvedite znacheniya 2 matrici - ");
+	printf("Vvedite znacheniya 2 matrici - \n");
 	for (int i=0; i<n; i++){
 		for (int j=0; j<n; j++){
 			scanf("%lf", &matrix2[i][j]);	
 		}
 	}
-	printf("Vvedite znac operacii(+,-,*) - ");
+	printf("Vvedite znac operacii(+,-,*) - \n");
 	scanf("%c", &znac);
+	double* result = operrations(matrix1, matrix2, n, znac);
+	printf("Rezultat - \n");
+	for (int i = 0; i < n; i++) {
+       for (int j = 0; j < n; j++) {
+           printf("%lf%lf", result[i][j]);
 	for (int i=0; i<n; i++){
 		free(matrix1[i]);
 		free(matrix2[i]);
