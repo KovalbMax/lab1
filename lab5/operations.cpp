@@ -5,6 +5,7 @@
   Разместить эту функцию в отдельном модуле (отличном от того, где располагается
 функция main()). Выдать на консоль значения полученного вектора. */
 int n;
+typedef double (*TFunc)();
 double *sum(int n, double m1, double m2, double result){
 	for (int i=0; i<n ; i++){
 		for (int j=0; j<n ; j++){
