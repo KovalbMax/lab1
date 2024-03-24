@@ -10,7 +10,6 @@ n на n с элементами типа double (значения n и элем
    функция main()). Выдать на консоль значения полученного вектора. */
 
 int main(int argc, char *argv[]) {
-	int m;
 	int p;
 	int n;
 	int znac;
