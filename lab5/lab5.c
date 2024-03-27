@@ -1,6 +1,7 @@
-
 #include <stdlib.h>
+#include <stdio.h>
 #include <malloc.h>
+#include "operations.h"
 /* Разместить в динамической памяти 2 массива – 2 матрицы размерностью 
 n на n с элементами типа double (значения n и элементы массивов ввести с консоли).
  А также ввести с консоли знак операции: '+', '-' или '*'.
@@ -9,18 +10,16 @@ n на n с элементами типа double (значения n и элем
   Разместить эту функцию в отдельном модуле (отличном от того, где располагается
    функция main()). Выдать на консоль значения полученного вектора. */
 
-int main(int argc, char *argv[]) {
-	int p;
+int main() {
 	int n;
-	int znac;
-	printf("Vvedite razmernost - \n");
-	scanf("%d", &n);
+	char znac;
+	printf("Vvedite razmernost -");
 	double **matrix1; double **matrix2;
 	matrix1=(double**)malloc(n*sizeof(double*));
 	matrix2=(double**)malloc(n*sizeof(double*));
 	for (int i=0; i<n; i++){
-		matrix1[i]=(double**)malloc(n*sizeof(double));
-		matrix2[i]=(double**)malloc(n*sizeof(double));
+		matrix1[i]=(double*)malloc(n*sizeof(double));
+		matrix2[i]=(double*)malloc(n*sizeof(double));
 	}
 	printf("Vvedite znacheniya 1 matrici \n- ");
 	for (int i=0; i<n; i++){
@@ -34,18 +33,21 @@ int main(int argc, char *argv[]) {
 			scanf("%lf", &matrix2[i][j]);	
 		}
 	}
-	printf("Vvedite znac operacii(+,-,*) - \n");
-	scanf("%c", &znac);
-	double* result = operrations(matrix1, matrix2, n, znac);
+	printf("VVedite znac operacii(+,-,*) - \n");
+	double **result = oper(matrix1, matrix2, n, znac);
 	printf("Rezultat - \n");
 	for (int i = 0; i < n; i++) {
        for (int j = 0; j < n; j++) {
-           printf("%lf%lf", result[i][j]);
+           printf("%.2f", result[i][j]);
+    	}
+	}
 	for (int i=0; i<n; i++){
 		free(matrix1[i]);
 		free(matrix2[i]);
+		free(result[i]);
 	}
 	free(matrix1);
 	free(matrix2);
+	free(result);
 	return 0;
 }
