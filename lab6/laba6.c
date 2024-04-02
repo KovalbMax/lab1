@@ -5,13 +5,12 @@
 #include <stdio.h>
 #include <string.h>
 int main(){
-	char num[2];
 	int r;
-	char str[50];
+	char str[100];
 	FILE * names= fopen("imena.txt", "r");
 	FILE * newnames = fopen("newna.txt", "w");
-	while (fgets(str, 50, names)) {
-		sscanf(str,"%*s %*s %*s %*s %d", &r);
+	while (fgets(str, sizeof(str), names)) {
+		sscanf(str,"%*s %*s %*s %d", &r);
 		if (r>1980){
 			fputs(str, newnames);
 		}
