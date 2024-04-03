@@ -3,20 +3,23 @@
 #include "operations.h"
 
 int main() {
+    
     int n;
     char znac;
     printf("Vvedite razmernost - ");
     scanf("%d", &n);
-
     double** matrix1;
     double** matrix2;
-
     matrix1 = (double**)malloc(n * sizeof(double*));
     matrix2 = (double**)malloc(n * sizeof(double*));
 
     for (int i = 0; i < n; i++) {
         matrix1[i] = (double*)malloc(n * sizeof(double));
         matrix2[i] = (double*)malloc(n * sizeof(double));
+    }
+    double** result = (double**)malloc(n * sizeof(double*));
+    for (int i = 0; i < n; i++) {
+        result[i] = (double*)malloc(n * sizeof(double));
     }
 
     printf("Vvedite znacheniya 1 matrici:\n");
@@ -35,8 +38,14 @@ int main() {
 
     printf("VVedite znac operacii(+,-,*) - ");
     scanf(" %c", &znac);
-
-    double **result = oper(matrix1, matrix2, n, znac);
+    if (znac == '+') {
+        result = sum(matrix1, matrix2, n);
+    } else if (znac == '-') {
+        result = minus(matrix1, matrix2, n);
+    } else if (znac == '*') {
+        result = comp(matrix1, matrix2, n);
+    }
+ 
 
     printf("Rezultat:\n");
     for (int i = 0; i < n; i++) {
