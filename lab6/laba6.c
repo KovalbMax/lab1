@@ -8,23 +8,13 @@ int main(){
 	int r;
 	char str[100];
 	FILE * names= fopen("imena.txt", "r");
-	FILE * newnames = fopen("newna.txt", "w");
+	FILE * newnames = fopen("newnames.txt", "w");
 	while (fgets(str, sizeof(str), names)) {
 		sscanf(str,"%*s %*s %*s %d", &r);
 		if (r>1980){
 			fputs(str, newnames);
 		}
 	}
-		
-	
-			
-	
-
-			
-			
-
-			
-	
 	fclose(names);
 	fclose(newnames);
 	return 0;

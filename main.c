@@ -22,3 +22,6 @@ int main(int argc, char *argv[]) {
 	printf("\%s", str);
 	return 0;
 }
+ 235 235 2 2 3234 3580 
+90 ъ
+20 
