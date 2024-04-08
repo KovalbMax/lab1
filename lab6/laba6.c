@@ -18,4 +18,4 @@ int main(){
 	fclose(names);
 	fclose(newnames);
 	return 0;
-}мвлполвплавппвпвпв
+}
