@@ -9,12 +9,16 @@ int main(){
 	char str[100];
 	FILE * names= fopen("imena.txt", "r");
 	FILE * newnames = fopen("newnames.txt", "w");
-	while (fgets(str, sizeof(str), names)) {
-		sscanf(str,"%*s %*s %*s %d", &r);
-		if (r>1980){
-			fputs(str, newnames);
-		}
-	}
+	char first_name[50];
+    char last_name[50];
+    char middle_name[50];
+
+    while (fscanf(names, "%s %s %s %d", first_name, last_name, middle_name, &r) == 4) {
+        if (r > 1980) {
+            fprintf(newnames, "%s %s %s %d\n", first_name, last_name, middle_name, r);
+        }
+    }
+
 	fclose(names);
 	fclose(newnames);
 	return 0;
