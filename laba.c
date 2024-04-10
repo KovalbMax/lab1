@@ -8,25 +8,44 @@
   упорядочив элементы по годам рождения. Вывести результат. */
 enum {lenth = 50};
 
-struct humen{
-	char name[20];
-	char secname[20];
+struct human{
+	char name[50];
+	char surname[50];
 	int year;
 };
-struct humen str1[lenth];
-struct humen str2[lenth];
+struct human human1[lenth];
+struct human human2[lenth];
 int main(int argc, char *argv[]) {
 
 	int n=4;
-	for(int i=0;i<n;i++){
-		printf("input name: ");
-  		gets(str1[i].name);
-  		printf("input surname: ");
-  		gets(str1[i].secname);
-  		printf("input birthday: ");
-  		gets(str1[i].year);
-	}
-  		printf("\n");
+	// Ввод данных
+	printf("Please, input data:\n");
+    for (int i = 0; i < n; i++) {
+        printf("Name: ");
+        scanf("%s", human1[i].name);
+        printf("Surname: ");
+        scanf("%s", human1[i].surname);
+        printf("Year: ");
+        scanf("%d", &human1[i].year);
+    }
+	memcpy(human2, human1, sizeof(human1));
+	
+	
+	// Сортировка 
+  	for (int i = 0; i < n; i++) {
+        for (int j = i + 1; j < n; j++) {
+            if (human2[i].year > human2[j].year) {
+                struct human p = human2[i];
+                human2[i] = human2[j];
+                human2[j] = p;
+            }
+        }
+    }
+
+    // Вывод отсортированного массива
+    for (int i = 0; i < 4; i++) {
+        printf("Name: %s, Surname: %s, Year: %d\n", human2[i].name, human2[i].surname, human2[i].year);
+    }
   	
 	
 	return 0;
