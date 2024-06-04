@@ -8,6 +8,13 @@
         if(arr[i] > res){ \ 
             res = arr[i];}} \ 
     printf("\nresult: %.2lf", res);}) 
+#define average(arr, size) ({ \ 
+    double sum = 0, aver; \ 
+    for(int i = 0; i < size; i++){ \ 
+      sum += arr[i]; \
+    }\
+    aver=sum/size;\
+    printf("\nAverage: %.2lf", aver);})
 
 int main() { 
      
@@ -26,6 +33,7 @@ int main() {
     } 
      
     max(nums, n); 
+    average(nums, n);
      
     return 0; 
 }

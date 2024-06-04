@@ -1,53 +1,76 @@
 #include <stdio.h>
+#include <stdarg.h>
 
-double sum(int count, double* array) {
-    double total = 0.0;
-    for (int i = 0; i < count; i++) {
-        total += array[i];
-    }
-    return total;
+double calculate_sum(int num, ...) {
+    va_list args;
+    double sum = 0;
+    
+    va_start(args, num);
+    for (int i = 0; i < num; i++) {
+        sum += va_arg(args, double);
+    }
+    va_end(args);
+    
+    return sum;
 }
 
-double max(int count, double* array) {
-    double maximum = array[0];
-    for (int i = 1; i < count; i++) {
-        if (array[i] > maximum) {
-            maximum = array[i];
-        }
-    }
-    return maximum;
+double calculate_max(int num, ...) {
+    va_list args;
+    double max = -999999; // Используем начальное значение, которое гарантированно меньше любого другого значения
+    
+    va_start(args, num);
+    for (int i = 0; i < num; i++) {
+        double current = va_arg(args, double);
+        if (current > max) {
+            max = current;
+        }
+    }
+    va_end(args);
+    
+    return max;
 }
 
-double min(int count, double* array) {
-    double minimum = array[0];
-    for (int i = 1; i < count; i++) {
-        if (array[i] < minimum) {
-            minimum = array[i];
-        }
-    }
-    return minimum;
+double calculate_min(int num, ...) {
+    va_list args;
+    double min = 999999; // Используем начальное значение, которое гарантированно больше любого другого значения
+    
+    va_start(args, num);
+    for (int i = 0; i < num; i++) {
+        double current = va_arg(args, double);
+        if (current < min) {
+            min = current;
+        }
+    }
+    va_end(args);
+    
+    return min;
 }
 
-double average(int count, double* array) {
-    if (count == 0) return 0; // Защита от деления на ноль
-    return sum(count, array) / count;
+double calculate_average(int num, ...) {
+    va_list args;
+    double sum = 0;
+    
+    va_start(args, num);
+    for (int i = 0; i < num; i++) {
+        sum += va_arg(args, double);
+    }
+    va_end(args);
+    
+    return sum / num;
 }
 
 int main() {
-    int count;
-    printf("Vvedite kol-vo elementov: ");
-    scanf("%d", &count);
+    double sum_result = calculate_sum(5, 10.5, 20.7, 15.2, 8.9, 12.1);
+    printf("Sum: %.2f\n", sum_result);
 
-    double values[count];
-    printf("Vvedite %d elementov: ", count);
-    for (int i = 0; i < count; i++) {
-        scanf("%lf", &values[i]);
-    }
+    double max_result = calculate_max(4, 10.5, 20.7, 15.2, 8.9);
+    printf("Max: %.2f\n", max_result);
 
-    printf("Sum: %f\n", sum(count, values));
-    printf("Max: %f\n", max(count, values));
-    printf("Min: %f\n", min(count, values));
-    printf("Average: %f\n", average(count, values));
+    double min_result = calculate_min(4, 10.5, 20.7, 15.2, 8.9);
+    printf("Min: %.2f\n", min_result);
 
-    return 0;
+    double avg_result = calculate_average(4, 10.5, 20.7, 15.2, 8.9);
+    printf("Average: %.2f\n", avg_result);
+
+    return 0;
 }
