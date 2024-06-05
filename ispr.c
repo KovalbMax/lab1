@@ -17,7 +17,7 @@ void createInputFile(int rows, int cols) {
   for (int i = 0; i < rows; i++) {
     for (int j = 0; j < cols; j++) {
       int a = rand() % 100;
-      fprintf(file, "%d ", a); // Генерируем случайные числа от 0 до 99
+      fprintf(file, "%d ", a);
       printf("%d ", a);
     }
     fprintf(file, "\n");
@@ -66,6 +66,8 @@ int main() {
   scanf("%d %d", &rows, &cols);
 
   createInputFile(rows, cols);
+  printf("\n");
+
 
   int** matrix1 = createMatrix(rows, cols);
   int** matrix2 = createMatrix(cols, rows);
@@ -78,17 +80,13 @@ int main() {
   readMatrixFromFile(matrix1, rows, cols);
   readMatrixFromFile(matrix2, rows, cols);
 
-
-
   multiplyMatrices(matrix1, matrix2, result1, rows, cols);
   addMatrices(matrix1, matrix2, result2, rows, cols);
-
-
-
 
   FILE* outputFile = fopen("output.txt", "w");
 
   fprintf(outputFile, "Результат умножения матриц:\n");
+  printf("Результат умножения матриц:\n");
   for (int i = 0; i < rows; i++) {
     for (int j = 0; j < cols; j++) {
       fprintf(outputFile, "%d ", result1[i][j]);
@@ -97,8 +95,9 @@ int main() {
     fprintf(outputFile, "\n");
     printf("\n");
   }
-
+  printf("\n");
   fprintf(outputFile, "\nРезультат сложения матриц:\n");
+  printf("\nРезультат сложения матриц:\n");
   for (int i = 0; i < rows; i++) {
     for (int j = 0; j < cols; j++) {
       fprintf(outputFile, "%d ", result2[i][j]);
@@ -107,7 +106,7 @@ int main() {
     fprintf(outputFile, "\n");
     printf("\n");
   }
-
+    printf("\n");
 
 
   fclose(outputFile);
