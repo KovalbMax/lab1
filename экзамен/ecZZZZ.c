@@ -45,7 +45,7 @@ int main(){
 	int** matrix2 = creatematrix(n);
 	int** result1 = creatematrix(n);
 	int** result2 = creatematrix(n);
-	
+	srand(time(NULL));
 	clock_t t_start, t_end;
 	t_start = clock();
 	
@@ -66,14 +66,14 @@ int main(){
 		fprintf(file, "\n");
 	}
 	
-	fscanf(file, "%d");
+	//fscanf(file, "%d");
 	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < n; j++) {
       		fscanf(file, "%d %d", &m1[i][j], &m2[i][j]);
 		}
 	}
 
-	
+	fclose(file);
 	FILE * file2 = fopen("output.txt", "w");
 	
 	result1 = sum(m1, m2, n);
@@ -97,16 +97,18 @@ int main(){
     	fprintf(file2, "\n");
   	}
   	
-  	fclose(file);
-  	file = fopen("input.txt", "r");
+  	
+  	file = fopen("input1.txt", "r");
   	
 	int number;
-    while (fscanf(file, "%d", &number) != NULL) {
-    	printf("%d \n",number);
+    while (fscanf(file, "%d", &number) != EOF) {
         if (number == 0) {
            // fprintf(file, "Zero");
-     		printf("Zero %d \n",number);           
+     		printf("Zero\n",number);           
+        }else{
+    	    printf("%d \n",number);
         }
+        
 	}
 	
 	double duration = (clock() - t_start)/(double)CLOCKS_PER_SEC;
